@@ -2,7 +2,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
 import { View, StyleSheet, Image, Button } from 'react-native';
 
-const PhotoPicker = ({onPick}) => {
+const PhotoPicker = ({onPick, img}) => {
    const [image, setImage] = useState(null)
 
    async function askForPermissions(){
@@ -29,7 +29,7 @@ const PhotoPicker = ({onPick}) => {
          <Button 
             title='Create photo'
             onPress={() => askForPermissions()}/>
-         {image ? <Image style={styles.image} source={{uri: image}}/> : null}
+         {image && img ? <Image style={styles.image} source={{uri: img ? image : null }}/> : null}
       </View>
    )
 }

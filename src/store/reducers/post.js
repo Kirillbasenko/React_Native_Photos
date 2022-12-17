@@ -1,6 +1,7 @@
 const initialState = {
    posts: [],
-   favorite: []
+   favorite: [],
+   loading: true
 }
 
 const postReducer = (state = initialState, action) => {
@@ -9,7 +10,8 @@ const postReducer = (state = initialState, action) => {
          return {
          ...state,
          posts: action.payload,
-         favorite: action.payload.filter(item => item.booked)
+         favorite: action.payload.filter(item => item.booked),
+         loading: false
          }
       case "POST_DELETE":
          return {

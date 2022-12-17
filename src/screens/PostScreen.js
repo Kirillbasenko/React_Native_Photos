@@ -24,8 +24,8 @@ export const PostScreen = ({ route, navigation }) => {
    }, [booked])
 
    const toggleHandler = useCallback(() => {
-      dispatch(bookedToggle(post.id))
-   }, [dispatch, postId] )
+      dispatch(bookedToggle(post))
+   }, [dispatch, post] )
 
 
    navigation.setOptions({ title: `Post from ${new Date(date).toLocaleDateString()}`})
